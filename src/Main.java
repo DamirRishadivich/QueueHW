@@ -6,12 +6,14 @@ public class Main {
         personDeque.addAll(generateClients());
         System.out.println(personDeque);
 
+
         while (!personDeque.isEmpty()) {
-            if (personDeque.element().ticket > 0) {
-                personDeque.offerLast(personDeque.element());
-                personDeque.pollFirst().usedTicket();
+            Person person = personDeque.poll();
+            if (person.ticket > 0) {
+                personDeque.offerLast(person);
+                person.usedTicket();
             } else {
-                personDeque.remove();
+                personDeque.remove(person);
             }
         }
         System.out.println(personDeque);
