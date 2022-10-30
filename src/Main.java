@@ -10,10 +10,8 @@ public class Main {
         while (!personDeque.isEmpty()) {
             Person person = personDeque.poll();
             if (person.ticket > 0) {
-                personDeque.offerLast(person);
-                person.usedTicket();
-            } else {
-                personDeque.remove(person);
+                person.usedTicket(); //прокатился
+                personDeque.offerLast(person);// добавляем в конец с -1 билетом
             }
         }
         System.out.println(personDeque);
