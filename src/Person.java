@@ -20,9 +20,11 @@ public class Person {
     }
 
     public void usedTicket() {
-        if (ticket > 0) {
+        if (ticket > 1) {
             ticket--;
             System.out.println(firstName + " " + secondName + " прокатился на аттракционе. Количество билетов стало: " + ticket);
+        } else if (ticket == 1) {
+            System.out.println(firstName + " " + secondName + " прокатился в последний раз.");
         }
     }
 

@@ -9,9 +9,12 @@ public class Main {
 
         while (!personDeque.isEmpty()) {
             Person person = personDeque.poll();
-            if (person.ticket > 0) {
-                person.usedTicket(); //прокатился
-                personDeque.offerLast(person);// добавляем в конец с -1 билетом
+            if (person.ticket > 1) { // если билетов больше чем дин катаемся, убираем билет, добавляем в конец очереди
+                person.usedTicket();
+                personDeque.offerLast(person);
+            } else if (person.ticket == 1) { // если билет остался 1 (последний), катаемся, удаляем билет и собственно персона из Дэка
+                person.usedTicket();
+                personDeque.remove(person);
             }
         }
         System.out.println(personDeque);
